@@ -18,7 +18,7 @@ git commit -m 'deploy'
 
 # если вы публикуете по адресу https://<USERNAME>.github.io
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
-https://ikolyas.github.io/web-store-front/
+
 # если вы публикуете по адресу https://<USERNAME>.github.io/<REPO>
 git push -f git@github.com:ikolyas/web-store-front.git master:gh-pages
 
