@@ -1,0 +1,9 @@
+{
+  "name": "web-store-front",
+  "version": "1.0.0",
+  "author": "VanKolis",
+  "private": true,
+  "scripts": {
+    "postinstall": "npm install express"
+  }
+}
