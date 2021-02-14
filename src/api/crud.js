@@ -2,13 +2,9 @@ export const methods = {
     get(url) {
         return fetch(url, {
             headers: {
-                // значение этого заголовка обычно ставится автоматически,
-                // в зависимости от тела запроса
-                "Content-Type": "text/plain;charset=UTF-8",
-                "Access-Control-Allow-Origin": "*"
-
-            },
-
+                'Access-Control-Allow-Origin': 'http://localhost:3000',
+                'Access-Control-Allow-Credentials': 'true',
+            }
         }).then(data => data.json())
     },
 }
