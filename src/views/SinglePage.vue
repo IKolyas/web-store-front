@@ -5,13 +5,13 @@
         </div>
         <div class="col-12 corusBlock">
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
+                <div v-if="item.img" class="carousel-inner">
                     <div class="carousel-item active">
-                        <img v-if="item.img" class="d-block w-100 corImg py-4" :src="item.img[0]['path']"
+                        <img class="d-block w-100 corImg py-4" :src="item.img[0]['path']"
                              :alt="item.title">
                     </div>
-                    <div class="carousel-item" v-for="img of item.img">
-                        <img v-if="item.img" class="d-block w-100 corImg" :src="img['path']" :alt="item.title">
+                    <div class="carousel-item" v-for="img of item.img.slice(1)">
+                        <img class="d-block w-100 corImg" :src="img['path']" :alt="item.title">
                     </div>
                 </div>
                 <a class="carousel-control-prev " href="#carouselExampleControls" role="button" data-slide="prev">
