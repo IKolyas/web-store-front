@@ -22,6 +22,7 @@
 
                         <!-- add product test -->
                         <button class="d-flex d-md-none justify-content-around"
+                                @click="addItem(item.id)"
                         >
                             Add to Cart
                             <i class="fas fa-cart-plus pl-2"></i>
