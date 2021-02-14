@@ -366,10 +366,8 @@ body {
   }
 
   .ProdHeadInp {
-    input {
-      width: 55px;
-      height: 31px;
-      text-align: center;
+    span, i {
+      font-size: 1rem;
     }
   }
 }
@@ -737,6 +735,7 @@ body {
 
     .breadcrumb-item:not(:nth-child(1))::before {
       content: "|" !important;
+      list-style-type: none;
     }
   }
 

@@ -1,5 +1,5 @@
 <template>
-    <nav class="container" v-show="$store.state.dropdownMenu">
+    <nav class="container" v-if="$store.state.dropdownMenu">
         <div class="topNav d-none d-sm-flex flex-column flex-lg-row justify-content-center align-items-center">
             <ul class="topMenu d-flex flex-column flex-lg-row justify-content-center align-items-center p-0 m-0 ">
                 <router-link :to="{name: 'Index'}" tag="li" class="menu__top__link">Home</router-link>

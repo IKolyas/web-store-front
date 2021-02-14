@@ -1,6 +1,6 @@
 <template>
         <div class="row d-flex col-12 p-0 mx-0 my-2 justify-content-around justify-content-lg-between"
-             v-show="$store.getters.filterCatalog"
+             v-if="$store.getters.filterCatalog"
         >
             <transition-group name="list"
                               class="row col-12 d-flex justify-content-center justify-content-lg-between m-0 p-0">

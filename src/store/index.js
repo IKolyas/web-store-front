@@ -25,61 +25,56 @@ export default new Vuex.Store({
     },
     //РАЗОБРАТЬСЯ С ГЕТБАСКЕТ
     mutations: {
-        addProduct({state}, item) {
-            this.state.basket.addProduct(item.itemId, item.quantity)
+
+        productChange({state}, item) {
+          this.state.basket.change(item.id, item.qut);
         },
-        removeProduct({state}, item) {
-            this.state.basket.removeProduct(item.itemId)
-        },
-        updateProduct({state}, item) {
-            this.state.basket.updateProduct(item.itemId, item.quantity)
-        }
+
     },
     actions: {
-        async getCatalog({state}, params = '') {
+        getCatalog({state}, params = '') {
             let url = `${urls.catalogUrl}${params}`
-            await methods.get(url)
+            methods.get(url)
                 .then(items => {
                     state.products = items
                 })
         },
-        async getProductOne({state}, id = '') {
+        async getProductSingle({state}, id = '') {
             let productUrl = `${urls.article}${id}`
-            console.log(productUrl)
             await methods.get(productUrl)
                 .then(item => {
                     state.product = item.results[0];
                 })
         },
-        async getDropdownCategory({state}, param = '') {
+        getDropdownCategory({state}, param = '') {
             let url = urls.dropdownCategoryUrl + param
-            await methods.get(url)
+            methods.get(url)
                 .then(catalog => {
                     state.dropdownMenu = catalog
                 })
         },
-        async getSizes({state}, params = '') {
+        getSizes({state}, params = '') {
             let url = `${urls.categorySizes}${params}`
 
-            await methods.get(url)
+            methods.get(url)
                 .then(category => {
                     state.sizesCategory = category
                 })
         },
-        async getPagination({state}, url = '') {
-            await methods.get(url)
+        getPagination({state}, url = '') {
+            methods.get(url)
                 .then(items => {
                     state.products = items;
                 })
         },
         getBasket({state}) {
-            this.state.basket.getBasketProducts().then()
+            this.state.basket.getBasketProducts()
         }
     },
     modules: {},
     getters: {
         filterCatalog(state) {
-            return state.products.results
+            return state.products.results || []
         },
         sizesCatalog(state) {
             return state.sizesCategory.results ?
@@ -87,7 +82,7 @@ export default new Vuex.Store({
 
         },
         basket(state) {
-            return state.basket.basket
+            return state.basket.basket || []
         }
     }
 })

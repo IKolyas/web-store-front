@@ -6,7 +6,7 @@
             >
                 <div class="psevProdCard mx-0 px-0">
                     <button class="d-flex justify-content-around"
-                            @click="addItem(item.id)"
+                            @click="itemChange(item.id)"
                     >
                         <i class="fas fa-cart-plus"></i>Add to Cart
                     </button>
@@ -22,7 +22,7 @@
 
                         <!-- add product test -->
                         <button class="d-flex d-md-none justify-content-around"
-                                @click="addItem(item.id)"
+                                @click="itemChange(item.id)"
                         >
                             Add to Cart
                             <i class="fas fa-cart-plus pl-2"></i>
@@ -35,9 +35,9 @@
         <template v-if="type === 'basket'">
             <div v-show="item">
                 <div class="d-flex px-3 justify-content-between align-items-center py-1">
-                    <router-link :to="{name: 'SinglePage', params: item}">
-                        <a href="#" v-if="item.img"><img :src="item.img[0]['path']" :alt="item.title"></a>
-                    </router-link>
+                        <img :src="item.img[0]['path']" :alt="item.title"
+                             @click="getOneProduct(item.id)"
+                        >
                     <div class="d-flex flex-column justify-content-center align-items-center product__text">
                         <h3 class="mb-0">{{item.title}}</h3>
                         <div class="stars py-0">
@@ -49,10 +49,18 @@
                         <p class="mt-1">{{+item.quantity}} x $
                             <span class="product__Price">{{+item.price}}</span>
                         </p>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <i class="fa fa-plus mx-2 dell__change__qut" aria-hidden="true"
+                               @click="itemChange(item.id)"
+                            ></i>
+                            <i class="fa fa-minus mx-2 dell__change__qut" aria-hidden="true"
+                                @click="itemChange(item.id, -1)"
+                            ></i>
+                        </div>
                     </div>
-                    <button name="remove" class="dell__Product fa fa-times-circle"
+                    <button name="remove" class="dell__change__qut fa fa-times-circle"
                             aria-hidden="true"
-                            @click="removeItem(item.id)"
+                            @click="itemChange(item.id, null)"
                     >
                     </button>
                 </div>
@@ -72,17 +80,16 @@
             item: {type: Object}
         },
         methods: {
+
+            itemChange(id, qut = 1) {
+                this.$store.commit('productChange', {'id': id, 'qut': qut})
+            },
+
             getOneProduct(id) {
-                this.$store.dispatch('getProductOne', id).then(() =>
+                this.$store.dispatch('getProductSingle', id).then(() =>
                     this.$router.push({path: `/single-page/${id}`})
                 )
             },
-            addItem(itemId, quantity = 1) {
-                this.$store.commit('addProduct', {'itemId': itemId, 'quantity': quantity});
-            },
-            removeItem(itemId) {
-                this.$store.commit('removeProduct', {'itemId': itemId})
-            }
         },
         mounted() {
 

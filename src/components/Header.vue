@@ -122,7 +122,10 @@
                 .then(() => {
                     this.$store.dispatch('getSizes', this.filterProducts().getSizes(this.filters))
                         .then(() => {
-                            const path = `/products/${this.filters.category}/${this.filters.subcategory}`;
+                            let path = `/products/${this.filters.category}`;
+                            if (this.filters.subcategory) {
+                                path += `/${this.filters.subcategory}`;
+                            }
                             if (this.$route.path !== path) {
                                 this.$router.push({path: path})
                             }

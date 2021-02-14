@@ -5,9 +5,9 @@
                 <h2>news arrivals</h2>
             </div>
             <ol class="newsNav d-flex">
-                <router-link tag="li" class="breadcrumb-item" aria-current="page" :to="{name: 'Index'}">
+                <li class="breadcrumb-item" @click="$router.push({name: 'Index'})">
                     Home
-                </router-link>
+                </li>
                 <template v-if="type === 'single'">
                   <li class="breadcrumb-item d-flex justify-content-center align-items-center"
                           @click="$router.go(-1)">

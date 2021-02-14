@@ -45,11 +45,12 @@
                 <div class="lineList col-12 d-flex align-items-center justify-content-center"></div>
                 <div class="select__params row col-12 d-flex align-items-center justify-content-center">
                     <label v-if="item.color" class="d-flex flex-column mx-4">CHOOSE COLOR
-                        <select  class="px-2 mt-2" >
+                        <select v-if="Array.isArray(item.color)" class="px-2 mt-2">
                             <option
                                     v-for="color of item.color" v-bind:key="color">{{item.color}}
                             </option>
                         </select>
+                        <option>{{ item.color }}</option>
                     </label>
                     <label v-show="item.size" class="d-flex flex-column mx-4">CHOOSE SIZE
                         <select class="px-2 mt-2">
@@ -71,12 +72,10 @@
                     </label>
                 </div>
                 <div class="ButList col-12 d-flex justify-content-center align-items-center pb-5">
-                    <button type="button">
-                        <svg class="bi bi-cart2" width="1.6em" height="1.6em" viewBox="0 0 16 16" fill="currentColor"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                  d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
-                        </svg>
+                    <button type="button"
+                        @click="itemChange(item.id)"
+                    >
+                        <i class="fas fa-cart-plus pl-2"></i>
                         Add to Cart
                     </button>
                 </div>
@@ -115,14 +114,16 @@
             }
         },
         methods: {
-
+            itemChange(id, qut = 1) {
+                this.$store.commit('productChange', {'id': id, 'qut': qut})
+            },
         },
         mounted() {
 
         },
         created() {
             this.$store.dispatch('getCatalog')
-            this.$store.dispatch('getProductOne', this.$route.params.id)
+            this.$store.dispatch('getProductSingle', this.$route.params.id)
         }
     }
 </script>

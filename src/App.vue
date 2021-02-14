@@ -40,7 +40,7 @@ export default {
 <style lang="scss">
 .component-fade-enter-active,
 .component-fade-leave-active {
-  transition: opacity 0.3s ease;
+  transition: opacity 0.4s ease;
 }
 .component-fade-enter,
 .component-fade-leave-to {

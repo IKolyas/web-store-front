@@ -9,56 +9,47 @@ export default class Basket {
         this.basketStore = localStorage.getItem('basket') ? JSON.parse(localStorage.getItem('basket')) : []
     }
 
-    addProduct(itemId, quantity= 1) {
-        let searchItem = this.basketStore.find((item) => item.id === itemId) || false;
-
-        if (searchItem && quantity !== 1) {
-            searchItem.quantity = quantity;
-
-        } else if (searchItem && quantity === 1) {
-            searchItem.quantity += quantity;
-
-        } else if (!searchItem) {
-            this.basketStore.push({'id': itemId, 'quantity': quantity});
+    change(id, qut) {
+        let searchItem = this.basketStore.find((item) => id === item.id ) || false;
+        if (searchItem) {
+            if (qut === 1) {
+                searchItem.quantity += qut;
+            } else if (qut > 1 ) {
+                searchItem.quantity = qut;
+            } else if (qut === -1 && searchItem.quantity >= 2) {
+                searchItem.quantity += qut;
+            } else {
+                this._removeProduct(searchItem)
+            }
+        } else {
+            this.basketStore.push({'id': id, 'quantity': qut});
         }
         if (this.basketStore !== undefined) {
             this._basketSyncing()
-            this.getBasketProducts().then()
+            this.getBasketProducts()
         }
     }
 
-    removeProduct(itemId) {
-        if (itemId) {
-            let searchItem = this.basketStore.find((item) => item.id === itemId);
-            if (searchItem) {
-                let indexItem = this.basketStore.indexOf(searchItem)
-                this.basketStore.splice(indexItem, 1)
-            }
-        }
-
-        this.getBasketProducts().then()
-
-
+    _removeProduct(item) {
+        let indexItem = this.basketStore.indexOf(item)
+        this.basketStore.splice(indexItem, 1)
+        this.getBasketProducts()
     }
-
-    updateProduct (itemId, quantity) {
-        if (itemId && quantity) {
-            let searchItem = this.basketStore.find((item) => item.id === itemId);
-            searchItem.quantity = quantity
-        }
-        this._basketSyncing()
-        this.getBasketProducts().then()
-    }
-
 
     _basketSyncing() {
-            localStorage.setItem("basket", JSON.stringify(this.basketStore))
+        localStorage.setItem("basket", JSON.stringify(this.basketStore))
     }
 
     _urlsIdes() {
         let ids = [];
-        this.basketStore.forEach(item => ids.push(item.id));
-        return `${urls.basket}${ids}&limit=100`;
+        if (this.basketStore) {
+            this.basketStore.forEach(item => ids.push(item.id));
+            return `${urls.basket}${ids}&limit=100`;
+        } else {
+            return `${urls.basket}`;
+        }
+
+
 
     }
 

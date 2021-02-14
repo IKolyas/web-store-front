@@ -5,7 +5,7 @@
                 <router-link :to="{name: 'SinglePage', params: item}">
                     <img v-if="item.img" :src="item.img[0]['path']" :alt="item.title">
                 </router-link>
-                <div class="ProdDetText d-flex flex-column ml-3 text-capitalize ">
+                <div class="ProdDetText d-flex flex-column ml-3 text-capitalize">
                     <router-link class="item__name" :to="{name: 'SinglePage', params: item}">
                         <h3 class="my-2">{{item.title}}</h3>
                     </router-link>
@@ -21,24 +21,19 @@
         <div class="row col-7 d-flex"><span
                 class="col-12 col-md-3 d-flex justify-content-center align-items-center">${{+item.price}}</span>
             <div class="ProdHeadInp col-12 col-md-3 d-flex justify-content-center align-items-center">
-                <label>
-                    <input
-                    type="number"
-                    min="1"
-                    max="20"
-                    step="1"
-                    v-bind:quantity="quantity"
-                    @change="updateProduct(item.id, quantity)"
-                    required pattern="^[0-9]+$"
-                   >
-<!-- CREATE DELL UPDATE METHODS-->
-                </label></div>
+                <i class="fa fa-plus mx-2 dell__change__qut" aria-hidden="true"
+                   @click="itemChange(item.id)"
+                ></i>
+                <span class="mx-2">{{ item.quantity }}</span>
+                <i class="fa fa-minus mx-2 dell__change__qut" aria-hidden="true"
+                   @click="itemChange(item.id, -1)"
+                ></i>
+            </div>
             <span class="col-12 col-md-2 pl-md-0 d-flex justify-content-center align-items-center">free</span>
             <span class="col-12 col-md-2 d-flex justify-content-center align-items-center">${{+item.price * +item.quantity}}</span>
-             <button name="remove" class="dell__Product fa fa-times-circle d-flex col-12 col-md-2 justify-content-center align-items-center"
-                            data-id="${item.id}"
+             <button name="remove" class="dell__change__qut fa fa-times-circle d-flex col-12 col-md-2 justify-content-center align-items-center"
                             aria-hidden="true"
-                            @click="removeItem(item.id)"
+                            @click="itemChange(item.id, null)"
              >
                     </button>
         </div>
@@ -55,7 +50,7 @@
         },
         data() {
             return {
-                quantity: 0,
+                qut: 0,
             };
         },
          props: {
@@ -64,13 +59,13 @@
             },
             item: { type: Object }
         },
+        computed: {
+        },
         methods: {
-            removeItem(itemId) {
-                this.$store.commit('removeProduct', {'itemId': itemId})
+
+            itemChange(id, qut = 1) {
+                this.$store.commit('productChange', {'id': id, 'qut': qut})
             },
-            updateProduct(itemId, quantity) {
-                this.$store.commit('updateProduct', {'itemId': itemId, 'quantity': quantity})
-            }
 
         },
         mounted() {

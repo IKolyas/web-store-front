@@ -2,7 +2,7 @@
     <transition name="basket">
         <div>
             <div class="basket__Product">
-                <div class="py-2" v-if="this.$store.state.basket.basket">
+                <div class="py-2">
                     <!-- BASKETITEMS -->
                     <Item v-for="item of $store.getters.basket" type="basket" :item="item" :key="item.id"/>
                 </div>
