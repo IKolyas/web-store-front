@@ -37,7 +37,7 @@ export default new Vuex.Store({
     },
     actions: {
         async getCatalog({state}, params = '') {
-            let url = `${urls.catalogUrl}${params}/`
+            let url = `${urls.catalogUrl}${params}`
             await methods.get(url)
                 .then(items => {
                     state.products = items
