@@ -34,9 +34,12 @@ export default new Vuex.Store({
     actions: {
         getCatalog({state}, params = '') {
             let url = `${urls.catalogUrl}${params}`
+
+            console.log(url)
             methods.get(url)
                 .then(items => {
-                    state.products = items
+                    state.products = items;
+
                 })
         },
         async getProductSingle({state}, id = '') {

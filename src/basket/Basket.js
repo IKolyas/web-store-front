@@ -26,14 +26,14 @@ export default class Basket {
         }
         if (this.basketStore !== undefined) {
             this._basketSyncing()
-            this.getBasketProducts()
+            this.getBasketProducts().then()
         }
     }
 
     _removeProduct(item) {
         let indexItem = this.basketStore.indexOf(item)
         this.basketStore.splice(indexItem, 1)
-        this.getBasketProducts()
+        this.getBasketProducts().then()
     }
 
     _basketSyncing() {

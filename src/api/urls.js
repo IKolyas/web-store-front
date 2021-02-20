@@ -7,6 +7,8 @@ export const urls = {
     dropdownCategoryUrl: `${baseUrl}/api/v1/products/dropdown_categories/`,
     categorySizes: `${baseUrl}/api/v1/products/category_sizes/?`,
     article: `${baseUrl}/api/v1/products/article/?id=`,
-    basket: `${baseUrl}/api/v1/basket/?id=`
+    basket: `${baseUrl}/api/v1/basket/?id=`,
     // test add cart
+
+    // img
 }

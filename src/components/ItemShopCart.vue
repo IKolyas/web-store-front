@@ -3,7 +3,7 @@
         <div class="row col-5 img-responsive">
             <div class="productDet d-flex">
                 <router-link :to="{name: 'SinglePage', params: item}">
-                    <img v-if="item.img" :src="item.img[0]['path']" :alt="item.title">
+                    <img v-if="item.img" :src="item.img[0]['image_path'] + item.img[0]['image_name']" :alt="item.title">
                 </router-link>
                 <div class="ProdDetText d-flex flex-column ml-3 text-capitalize">
                     <router-link class="item__name" :to="{name: 'SinglePage', params: item}">

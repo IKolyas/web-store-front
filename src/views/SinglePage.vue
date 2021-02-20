@@ -7,11 +7,11 @@
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div v-if="item.img" class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block w-100 corImg py-4" :src="item.img[0]['path']"
+                        <img class="d-block w-100 corImg py-4" :src="item.img[0]['image_path'] + item.img[0]['image_name']"
                              :alt="item.title">
                     </div>
                     <div class="carousel-item" v-for="img of item.img.slice(1)">
-                        <img class="d-block w-100 corImg" :src="img['path']" :alt="item.title">
+                        <img class="d-block w-100 corImg" :src="img['image_path'] + img['image_name']" :alt="item.title">
                     </div>
                 </div>
                 <a class="carousel-control-prev " href="#carouselExampleControls" role="button" data-slide="prev">

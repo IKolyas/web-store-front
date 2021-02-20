@@ -382,8 +382,8 @@
         },
 
         mounted() {
-            this.routeCategory();
-            this.$store.dispatch("getCatalog");
+            this.getSizes()
+            this.$store.dispatch("getCatalog", this.filterProducts().getProductsParams(this.filters));
         },
         created() {
 

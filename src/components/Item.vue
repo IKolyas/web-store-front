@@ -11,7 +11,7 @@
                         <i class="fas fa-cart-plus"></i>Add to Cart
                     </button>
                 </div>
-                    <img v-if="item.img" :src="item.img[0]['path']" class="card-img-top" :alt="item.title">
+                    <img v-if="item.img" :src="item.img[0]['image_path'] + item.img[0]['image_name']" class="card-img-top" :alt="item.title">
                 <div class="psevProdCardBody card-body d-flex flex-column align-content-start pb-0 px-3">
 
                     <a href="#" class="card-text" @click="getOneProduct(item.id)">{{ item.title }}</a>
@@ -35,7 +35,7 @@
         <template v-if="type === 'basket'">
             <div v-show="item">
                 <div class="d-flex px-3 justify-content-between align-items-center py-1">
-                        <img :src="item.img[0]['path']" :alt="item.title"
+                        <img :src="item.img[0]['image_path'] + item.img[0]['image_name']" :alt="item.title"
                              @click="getOneProduct(item.id)"
                         >
                     <div class="d-flex flex-column justify-content-center align-items-center product__text">
@@ -71,13 +71,19 @@
 </template>
 
 <script>
+
     export default {
         props: {
             type: {
                 type: String,
                 default: 'catalog'
             },
-            item: {type: Object}
+            item: {type: Object},
+
+        },
+        data() {
+            return {
+            };
         },
         methods: {
 
