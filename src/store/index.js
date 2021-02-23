@@ -9,6 +9,7 @@ export default new Vuex.Store({
     state: {
         products: [],
         product: [],
+
         sizesCategory: [],
         dropdownMenu: [],
         items: [],
@@ -34,8 +35,6 @@ export default new Vuex.Store({
     actions: {
         getCatalog({state}, params = '') {
             let url = `${urls.catalogUrl}${params}`
-
-            console.log(url)
             methods.get(url)
                 .then(items => {
                     state.products = items;
@@ -77,12 +76,13 @@ export default new Vuex.Store({
     modules: {},
     getters: {
         filterCatalog(state) {
+            console.log(state.products.results)
             return state.products.results || []
+
         },
         sizesCatalog(state) {
             return state.sizesCategory.results ?
                 Object.values(state.sizesCategory.results).map(size => Object.values(size)) : []
-
         },
         basket(state) {
             return state.basket.basket || []

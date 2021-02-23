@@ -91,7 +91,7 @@
                 showBasket: false,
 
                 filters: {
-                    limit: 6,
+                    limit: 12,
                     category: '',
                     subcategory: '',
                     price: {min: 0, max: 10000},

@@ -34,7 +34,7 @@
                                         >
                                             {{category.title}}
                                         </h3>
-                                        <li v-if="category.sub && category.sub.length > 0"
+                                        <li v-if="category.sub"
                                             v-for="sub of category.sub">
                                             <h4 class="subcategory__accordion pl-5"
                                                 @click="updateCatalog({category: category.id, subcategory: sub.id})"
@@ -341,8 +341,9 @@
 
             getFilterProducts() {
                 // sizes stack\
-                this.$store.dispatch('getCatalog', this.filterProducts().getProductsParams(this.filters))
                 this.getSizes();
+                this.$store.dispatch('getCatalog', this.filterProducts().getProductsParams(this.filters))
+
 
             },
 
@@ -383,7 +384,7 @@
 
         mounted() {
             this.getSizes()
-            this.$store.dispatch("getCatalog", this.filterProducts().getProductsParams(this.filters));
+
         },
         created() {
 

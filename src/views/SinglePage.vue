@@ -122,7 +122,7 @@
 
         },
         created() {
-            this.$store.dispatch('getCatalog')
+            // this.$store.dispatch('getCatalog')
             this.$store.dispatch('getProductSingle', this.$route.params.id)
         }
     }

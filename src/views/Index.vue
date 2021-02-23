@@ -129,7 +129,6 @@
             Catalog,
         },
         mounted() {
-            this.$store.dispatch("getCatalog");
             this.$store.dispatch("getBasket");
         },
         created() {

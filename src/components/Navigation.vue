@@ -10,7 +10,7 @@
                 >
                     <h2 class="m-0 p-0" @click="updateCatalog({category: category.id})">{{category.title}}</h2>
 
-                    <ul v-if="category.sub && category.sub.length > 0"
+                    <ul v-if="category.sub"
                         class="d-none submenu row d-md-flex flex-md-column py-2 px-4 mx-5"
                     >
                         <h3 class="mb-0 mt-2"> категории </h3>

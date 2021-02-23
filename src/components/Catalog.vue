@@ -48,7 +48,7 @@
 
         },
         mounted() {
-            // this.$store.dispatch('getCatalog')
+            this.$store.dispatch("getCatalog");
         }
     }
 </script>
