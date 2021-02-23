@@ -69,12 +69,14 @@
 
         </div>
         <div class="container d-flex justify-content-center align-items-center mb-5">
-            <router-link class="banner__container" :to="{name: 'Products'}">
+            <a class="banner__container"
+               @click="getAllProducts()"
+            >
                 <div class="all__products d-flex align-items-center justify-content-center">
                     Browse All Product
                     <i class="pl-2 fa fa-long-arrow-right" aria-hidden="true"></i>
                 </div>
-            </router-link>
+            </a>
         </div>
         <div class="container">
             <div class="buttBanBG row d-flex justify-content-between">
@@ -128,8 +130,13 @@
         components: {
             Catalog,
         },
+        methods: {
+            getAllProducts() {
+                this.$router.push({name: 'Products'})
+            }
+        },
         mounted() {
-            this.$store.dispatch("getBasket");
+            this.$store.dispatch('getCatalog')
         },
         created() {
 

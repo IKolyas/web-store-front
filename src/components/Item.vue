@@ -11,7 +11,8 @@
                         <i class="fas fa-cart-plus"></i>Add to Cart
                     </button>
                 </div>
-                    <img v-if="item.img" :src="item.img[0]['image_path'] + item.img[0]['image_name']" class="card-img-top" :alt="item.title">
+                <img v-if="item.img" :src="item.img[0]['image_path'] + item.img[0]['image_name']" class="card-img-top"
+                     :alt="item.title">
                 <div class="psevProdCardBody card-body d-flex flex-column align-content-start pb-0 px-3">
 
                     <a href="#" class="card-text" @click="getOneProduct(item.id)">{{ item.title }}</a>
@@ -35,9 +36,9 @@
         <template v-if="type === 'basket'">
             <div v-show="item">
                 <div class="d-flex px-3 justify-content-between align-items-center py-1">
-                        <img :src="item.img[0]['image_path'] + item.img[0]['image_name']" :alt="item.title"
-                             @click="getOneProduct(item.id)"
-                        >
+                    <img :src="item.img[0]['image_path'] + item.img[0]['image_name']" :alt="item.title"
+                         @click="getOneProduct(item.id)"
+                    >
                     <div class="d-flex flex-column justify-content-center align-items-center product__text">
                         <h3 class="mb-0">{{item.title}}</h3>
                         <div class="stars py-0">
@@ -50,19 +51,21 @@
                             <span class="product__Price">{{+item.price}}</span>
                         </p>
                         <div class="d-flex justify-content-center align-items-center">
-                            <i class="fa fa-plus mx-2 dell__change__qut" aria-hidden="true"
-                               @click="itemChange(item.id)"
-                            ></i>
-                            <i class="fa fa-minus mx-2 dell__change__qut" aria-hidden="true"
-                                @click="itemChange(item.id, -1)"
-                            ></i>
+                            <button class="fa fa-plus mx-2 dell__change__qut qut__add"
+                                    aria-hidden="true"
+                                    @click="itemChange(item.id)"
+                            ></button>
+                            <button class="fa fa-minus mx-2 dell__change__qut qut__remove"
+                                    aria-hidden="true"
+                                    :disabled="!(item.quantity > 1)"
+                                    @click="itemChange(item.id, -1)"
+                            ></button>
                         </div>
                     </div>
-                    <button name="remove" class="dell__change__qut fa fa-times-circle"
+                    <button name="remove" class="dell__change__qut qut__del fa fa-times-circle"
                             aria-hidden="true"
                             @click="itemChange(item.id, null)"
-                    >
-                    </button>
+                    ></button>
                 </div>
                 <div class="dropdown-divider mx-3"></div>
             </div>
@@ -82,8 +85,11 @@
 
         },
         data() {
-            return {
-            };
+
+            return {};
+        },
+        computed: {
+
         },
         methods: {
 

@@ -5,7 +5,7 @@
         </div>
         <main class="container my-5">
             <div class="row">
-                <div class="leftMenu col-12 col-md-3 d-flex flex-column ">
+                <div class="leftMenu col-12  col-md-3 d-flex flex-column ">
                     <div class="accordion position-sticky fixed-top pt-3" id="accordionExample">
 
                         <div class="card border-0 rounded-0 pb-3">
@@ -114,7 +114,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="rightProduct col-12 col-md-9 align-items-start flex-column bd-highlight">
+                <div  class="rightProduct col-12 col-md-9 align-items-start flex-column bd-highlight">
                     <div class="row d-flex col-12 px-0 m-0">
                         <nav aria-label="breadcrumb"
                              class="col-12 col-lg-4 d-flex flex-column justify-content-center justify-content-lg-start px-0">
@@ -141,7 +141,7 @@
                             <div class="m-0 p-0 col-12 d-flex justify-content-center justify-content-lg-start">
                                 <h4 class="m-0">Size</h4>
                             </div>
-                            <div v-for="size in $store.getters.sizesCatalog"
+                            <div  v-for="size in $store.getters.sizesCatalog"
                                  class="row d-flex flex-column m-0 p-0 col-3">
                                 <div class="form-check form-check-inline checkFormProd">
                                     <input ref="size" class="form-check-input" type="checkbox"
@@ -214,14 +214,14 @@
                             <ul class="pagination">
                                 <li v-if="paginationLink.previous !== null" class="page-item">
                                     <a class="page-link page-list" href="#"
-                                       @click.prevent="linkPagination()"
+                                       @click="linkPagination()"
 
                                     >
                                         <span aria-hidden="true">&laquo;</span>
                                     </a>
                                 </li>
                                 <span v-for="(page, index) of paginationList"
-                                      @click.prevent="linkPagination(page)" :key="index">
+                                      @click="linkPagination(page)" :key="index">
                                     <input type="radio" class="d-none"
                                            :id="index"
                                            :value="page"
@@ -244,7 +244,7 @@
 
                                 <li v-if="paginationLink.next != null" class="page-item">
                                     <a class="page-link page-list" href="#"
-                                       @click.prevent="linkPagination()" aria-label="Next">
+                                       @click="linkPagination()" aria-label="Next">
                                         <span aria-hidden="true">&raquo;</span>
                                     </a>
                                 </li>
@@ -362,9 +362,8 @@
             getAll() {
                 this.routeCategory();
                 this.filters.limit = 200;
-                this.$store.dispatch('getCatalog', this.filterProducts().getProductsParams(this.filters));
+                this.$store.dispatch('getCatalog', this.filterProducts().getProductsParams(this.filters))
             },
-
 
             linkPagination(page = false) {
                 this.routeCategory();

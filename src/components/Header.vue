@@ -11,7 +11,7 @@
                 <div class="input-group-prepend">
                     <button class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center justify-content-center"
                             type="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">Browse
+                            aria-haspopup="true" aria-expanded="false">Поиск
                     </button>
                     <div class="dropdown-menu dr__menu__left">
                         <a class="dropdown-item left__link__h pl-4" href="#">WOMAN</a>
@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                       placeholder="Search for Item..."
+                       placeholder="Поиск по наименованию ..."
                        v-model="search"
                        @change="searchProduct()"
 
@@ -115,7 +115,6 @@
             },
 
             updateCatalog(params) {
-
                 this.filters.category = params.category || '';
                 this.filters.subcategory = params.subcategory || '';
                 this.$store.dispatch('getCatalog', this.filterProducts().getProductsParams(this.filters))

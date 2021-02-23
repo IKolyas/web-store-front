@@ -53,7 +53,7 @@
             },
             disabled() {
                 return !(this.$store.state.basket.basket && this.$store.state.basket.basket.length > 0)
-            }
+            },
         },
 
         methods: {
@@ -67,7 +67,7 @@
         },
 
         mounted() {
-
+            this.$store.dispatch("getBasket");
         },
     };
 </script>

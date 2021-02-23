@@ -73,10 +73,19 @@
     transform: scale(1.2, 1.2);
     cursor: pointer;
   }
-
   &:focus {
     outline: none;
   }
+
+}
+.qut__del:hover {
+  color: red !important;
+}
+.qut__add:hover {
+  color: green !important;
+}
+.qut__remove:hover {
+  color: blueviolet !important;
 }
 
 .my_account {
@@ -257,7 +266,7 @@
       position: absolute;
       top: 40px;;
       opacity: 0;
-      z-index: 5;
+      z-index: 1500;
       transform: perspective(600px) rotateX(-90deg);
       transform-origin: 0 0;
       transition: .2s ease-in-out;

@@ -1,5 +1,5 @@
 <template>
-        <div class="row d-flex col-12 p-0 mx-0 my-2 justify-content-around justify-content-lg-between"
+        <div  class="row d-flex col-12 p-0 mx-0 my-2 justify-content-around justify-content-lg-between min-vh-50"
              v-if="$store.getters.filterCatalog"
         >
             <transition-group name="list"
@@ -16,12 +16,13 @@
 </template>
 
 <script>
-
+import Header from "./Header";
     const Item = () => import('./Item.vue');
 
     export default {
         components: {
             Item,
+            Header
         },
         props: {
             type: {
@@ -48,7 +49,7 @@
 
         },
         mounted() {
-            this.$store.dispatch("getCatalog");
+            // this.$store.dispatch("getCatalog", this.filterProducts().getProductsParams(this.filters));
         }
     }
 </script>

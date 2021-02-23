@@ -10,30 +10,33 @@ export default class Basket {
     }
 
     change(id, qut) {
-        let searchItem = this.basketStore.find((item) => id === item.id ) || false;
-        if (searchItem) {
-            if (qut === 1) {
-                searchItem.quantity += qut;
-            } else if (qut > 1 ) {
-                searchItem.quantity = qut;
-            } else if (qut === -1 && searchItem.quantity >= 2) {
-                searchItem.quantity += qut;
-            } else {
-                this._removeProduct(searchItem)
-            }
-        } else {
-            this.basketStore.push({'id': id, 'quantity': qut});
-        }
-        if (this.basketStore !== undefined) {
-            this._basketSyncing()
-            this.getBasketProducts().then()
-        }
+       let searchItem = this.basketStore.find((item) => id === item.id ) || false;
+
+       if (!searchItem) {
+           this._pushToBasket(id)
+           this.getBasketProducts().then()
+           return true
+       }
+
+       if (qut === 1) {
+           searchItem.quantity += qut;
+       } else if (qut > 1) {
+           searchItem.quantity = qut;
+       } else if (searchItem.quantity >= 2 && qut === -1) {
+           searchItem.quantity += qut;
+       } else {
+           this._removeFromBasket(searchItem)
+       }
+        this.getBasketProducts().then()
     }
 
-    _removeProduct(item) {
+    _pushToBasket(id) {
+        this.basketStore.push({'id': id, 'quantity': 1});
+    }
+
+    _removeFromBasket(item) {
         let indexItem = this.basketStore.indexOf(item)
         this.basketStore.splice(indexItem, 1)
-        this.getBasketProducts().then()
     }
 
     _basketSyncing() {
@@ -63,7 +66,6 @@ export default class Basket {
                     basket.map((item) => {
                         const storeItem = this.basketStore.find(prod => item.id === prod.id) || [];
                         item['quantity'] = storeItem.quantity
-
                     })
                     this.basket = basket
                 })

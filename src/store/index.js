@@ -34,6 +34,7 @@ export default new Vuex.Store({
     },
     actions: {
         getCatalog({state}, params = '') {
+            state.products = []
             let url = `${urls.catalogUrl}${params}`
             methods.get(url)
                 .then(items => {
@@ -70,7 +71,7 @@ export default new Vuex.Store({
                 })
         },
         getBasket({state}) {
-            this.state.basket.getBasketProducts()
+            this.state.basket.getBasketProducts().then()
         }
     },
     modules: {},

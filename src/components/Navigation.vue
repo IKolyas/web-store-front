@@ -1,8 +1,8 @@
 <template>
-    <nav class="container" v-if="$store.state.dropdownMenu">
+    <nav class="container" v-show="$store.state.dropdownMenu">
         <div class="topNav d-none d-sm-flex flex-column flex-lg-row justify-content-center align-items-center">
             <ul class="topMenu d-flex flex-column flex-lg-row justify-content-center align-items-center p-0 m-0 ">
-                <router-link :to="{name: 'Index'}" tag="li" class="menu__top__link">Home</router-link>
+                <router-link :to="{name: 'Index'}" tag="li" class="menu__top__link">Главная</router-link>
 
                 <li v-for="category in $store.state.dropdownMenu"
                     class="menu__top__link py-2"
@@ -23,28 +23,7 @@
                         </li>
                     </ul>
                 </li>
-                <router-link :to="{name: 'Products'}" tag="li" class="menu__top__link">Women
-                    <ul class="d-none submenu row d-md-flex">
-                        <li class="col-4 d-flex flex-column mx-2 py-2">
-                            <h3 class="mb-0 mt-2">Women</h3>
-                            <div class="dropdown-divider"></div>
-                            <a class="subMenuLink" href="#">Dresses</a>
-                            <a class="subMenuLink" href="#">Tops</a>
-                            <a class="subMenuLink" href="#">Sweaters/Knits</a>
-                            <a class="subMenuLink" href="#">Jackets/Coats</a>
-                            <a class="subMenuLink" href="#">Blazers</a>
-                            <a class="subMenuLink" href="#">Denim</a>
-                            <a class="subMenuLink" href="#">Leggings/Pants</a>
-                            <a class="subMenuLink" href="#">Skirts/Shorts</a>
-                            <a class="subMenuLink" href="#">Accessories </a>
-                            <img src="https://raw.githubusercontent.com/IKolyas/static/master/GBProject/img/subMenu.jpg"
-                                 alt="subMan" class="mt-3 submenu__img">
-                        </li>
-                    </ul>
-                </router-link>
-                <router-link :to="{name: 'Products'}" tag="li" class="menu__top__link">Kids</router-link>
-                <router-link :to="{name: 'Products'}" tag="li" class="menu__top__link">Featured</router-link>
-                <router-link :to="{name: 'Products'}" tag="li" class="menu__top__link">Hot Deals</router-link>
+                <router-link :to="{name: 'Products'}" tag="li" class="menu__top__link">Все товары</router-link>
             </ul>
         </div>
         <div class="topNavMobile fixed-top d-block d-sm-none">
@@ -52,8 +31,8 @@
                 <div class="bg-light p-4 d-flex flex-column justify-content-center">
                     <router-link :to="{name: 'Index'}"><a href="#">Home</a></router-link>
 
-                    <h4  v-for="category in $store.state.dropdownMenu"
-                         @click="updateCatalog({category: category.id})">
+                    <h4 v-for="category in $store.state.dropdownMenu"
+                        @click="updateCatalog({category: category.id})">
                         {{category.title}}
                     </h4>
                     <router-link :to="{name: 'Products'}">
@@ -97,12 +76,9 @@
         name: "Navigation",
         extends: Header,
         data() {
-            return {
-
-            }
+            return {}
         },
         methods: {
-
         },
         mounted() {
             this.$store.dispatch('getDropdownCategory');
