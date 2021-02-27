@@ -1,4 +1,4 @@
-import {methods} from '../api/crud.js'
+import {fetchMethods} from '../api/serverApi.js'
 import {urls} from '../api/urls.js'
 
 export default class Basket {
@@ -51,29 +51,24 @@ export default class Basket {
         } else {
             return `${urls.basket}`;
         }
-
-
-
     }
 
     async getBasketProducts () {
         if (this.basketStore && this.basketStore.length > 0) {
             this._basketSyncing()
             let url = this._urlsIdes()
-            await methods.get(url)
+            await fetchMethods.get(url)
                 .then((req) => {
                     let basket = [...req.results]
                     basket.map((item) => {
                         const storeItem = this.basketStore.find(prod => item.id === prod.id) || [];
                         item['quantity'] = storeItem.quantity
+                        this.basket = basket
                     })
-                    this.basket = basket
                 })
         } else {
             this._basketSyncing()
             this.basket = []
         }
-
     }
-
 }

@@ -76,7 +76,7 @@
 
 <script>
 
-    import {GetCatalogParams} from "../utils/GetCatalogParams";
+    import {FilterSerializer} from "../utils/FilterSerializer";
     const Basket = () => import('./Basket.vue');
 
     export default {
@@ -101,13 +101,15 @@
                 clickPage: [],
                 search: '',
 
-                filterProducts: () => new GetCatalogParams(),
+                // filterProducts: () => new FilterSerializer(),
 
             }
         },
 
 
-        computed: {},
+        computed: {
+
+        },
         methods: {
 
             searchProduct() {
@@ -115,21 +117,21 @@
             },
 
             updateCatalog(params) {
-                this.filters.category = params.category || '';
-                this.filters.subcategory = params.subcategory || '';
-                this.$store.dispatch('getCatalog', this.filterProducts().getProductsParams(this.filters))
-                .then(() => {
-                    this.$store.dispatch('getSizes', this.filterProducts().getSizes(this.filters))
-                        .then(() => {
-                            let path = `/products/${this.filters.category}`;
-                            if (this.filters.subcategory) {
-                                path += `/${this.filters.subcategory}`;
-                            }
-                            if (this.$route.path !== path) {
-                                this.$router.push({path: path})
-                            }
-                        })
-                })
+                // this.filters.category = params.category || '';
+                // this.filters.subcategory = params.subcategory || '';
+                // this.$store.dispatch('getCatalog', this.filterProducts().getProductsParams(this.filters))
+                // .then(() => {
+                //     this.$store.dispatch('getSizes', this.filterProducts().getSizes(this.filters))
+                //         .then(() => {
+                //             let path = `/products/${this.filters.category}`;
+                //             if (this.filters.subcategory) {
+                //                 path += `/${this.filters.subcategory}`;
+                //             }
+                //             if (this.$route.path !== path) {
+                //                 this.$router.push({path: path})
+                //             }
+                //         })
+                // })
             },
         },
         mounted() {

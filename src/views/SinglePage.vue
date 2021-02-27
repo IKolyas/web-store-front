@@ -73,7 +73,7 @@
                 </div>
                 <div class="ButList col-12 d-flex justify-content-center align-items-center pb-5">
                     <button type="button"
-                        @click="itemChange(item.id)"
+                        @click="changeBasketProduct(item.id)"
                     >
                         <i class="fas fa-cart-plus pl-2"></i>
                         Add to Cart
@@ -110,20 +110,19 @@
         },
         computed: {
             item() {
-                return this.$store.state.product
+                return this.$store.getters['products/singleProduct']
             }
         },
         methods: {
-            itemChange(id, qut = 1) {
-                this.$store.commit('productChange', {'id': id, 'qut': qut})
+            changeBasketProduct(id, qut = 1) {
+                this.$store.dispatch('basket/changeBasketProduct', {'id': id, 'qut': qut})
             },
         },
         mounted() {
 
         },
         created() {
-            // this.$store.dispatch('getCatalog')
-            this.$store.dispatch('getProductSingle', this.$route.params.id)
+
         }
     }
 </script>

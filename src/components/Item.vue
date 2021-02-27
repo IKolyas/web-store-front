@@ -6,7 +6,7 @@
             >
                 <div class="psevProdCard mx-0 px-0">
                     <button class="d-flex justify-content-around"
-                            @click="itemChange(item.id)"
+                            @click="changeBasketProduct(item.id)"
                     >
                         <i class="fas fa-cart-plus"></i>Add to Cart
                     </button>
@@ -23,7 +23,7 @@
 
                         <!-- add product test -->
                         <button class="d-flex d-md-none justify-content-around"
-                                @click="itemChange(item.id)"
+                                @click="changeBasketProduct(item.id)"
                         >
                             Add to Cart
                             <i class="fas fa-cart-plus pl-2"></i>
@@ -53,18 +53,18 @@
                         <div class="d-flex justify-content-center align-items-center">
                             <button class="fa fa-plus mx-2 dell__change__qut qut__add"
                                     aria-hidden="true"
-                                    @click="itemChange(item.id)"
+                                    @click="changeBasketProduct(item.id)"
                             ></button>
                             <button class="fa fa-minus mx-2 dell__change__qut qut__remove"
                                     aria-hidden="true"
                                     :disabled="!(item.quantity > 1)"
-                                    @click="itemChange(item.id, -1)"
+                                    @click="changeBasketProduct(item.id, -1)"
                             ></button>
                         </div>
                     </div>
                     <button name="remove" class="dell__change__qut qut__del fa fa-times-circle"
                             aria-hidden="true"
-                            @click="itemChange(item.id, null)"
+                            @click="changeBasketProduct(item.id, null)"
                     ></button>
                 </div>
                 <div class="dropdown-divider mx-3"></div>
@@ -93,12 +93,12 @@
         },
         methods: {
 
-            itemChange(id, qut = 1) {
-                this.$store.commit('productChange', {'id': id, 'qut': qut})
+            changeBasketProduct(id, qut = 1) {
+                this.$store.dispatch('basket/changeBasketProduct', {'id': id, 'qut': qut})
             },
 
             getOneProduct(id) {
-                this.$store.dispatch('getProductSingle', id).then(() =>
+                this.$store.dispatch('products/getProductSingle', id).then(() =>
                     this.$router.push({path: `/single-page/${id}`})
                 )
             },

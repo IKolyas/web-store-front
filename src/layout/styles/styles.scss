@@ -311,6 +311,7 @@ body {
 
     li {
       text-decoration: none;
+      list-style: none;
       color: rgb(99, 99, 99);
 
       &:hover {
@@ -733,10 +734,6 @@ body {
       }
     }
 
-    .breadcrumb-item:not(:nth-child(1))::before {
-      content: "|" !important;
-      list-style-type: none;
-    }
   }
 
   .active {

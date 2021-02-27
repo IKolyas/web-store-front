@@ -22,18 +22,18 @@
                 class="col-12 col-md-3 d-flex justify-content-center align-items-center">${{+item.price}}</span>
             <div class="ProdHeadInp col-12 col-md-3 d-flex justify-content-center align-items-center">
                 <i class="fa fa-plus mx-2 dell__change__qut" aria-hidden="true"
-                   @click="itemChange(item.id)"
+                   @click="changeBasketProduct(item.id)"
                 ></i>
                 <span class="mx-2">{{ item.quantity }}</span>
                 <i class="fa fa-minus mx-2 dell__change__qut" aria-hidden="true"
-                   @click="itemChange(item.id, -1)"
+                   @click="changeBasketProduct(item.id, -1)"
                 ></i>
             </div>
             <span class="col-12 col-md-2 pl-md-0 d-flex justify-content-center align-items-center">free</span>
             <span class="col-12 col-md-2 d-flex justify-content-center align-items-center">${{+item.price * +item.quantity}}</span>
              <button name="remove" class="dell__change__qut fa fa-times-circle d-flex col-12 col-md-2 justify-content-center align-items-center"
                             aria-hidden="true"
-                            @click="itemChange(item.id, null)"
+                            @click="changeBasketProduct(item.id, null)"
              >
                     </button>
         </div>
@@ -63,8 +63,8 @@
         },
         methods: {
 
-            itemChange(id, qut = 1) {
-                this.$store.commit('productChange', {'id': id, 'qut': qut})
+            changeBasketProduct(id, qut = 1) {
+                this.$store.dispatch('basket/changeBasketProduct', {'id': id, 'qut': qut})
             },
 
         },

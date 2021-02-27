@@ -136,7 +136,7 @@
             }
         },
         mounted() {
-            this.$store.dispatch('getCatalog')
+            this.$store.dispatch('products/getCatalog')
         },
         created() {
 

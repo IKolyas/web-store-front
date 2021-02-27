@@ -1,14 +1,14 @@
 <template>
-    <nav class="container" v-show="$store.state.dropdownMenu">
+    <nav class="container" v-show="$store.getters['products/dropdownCategory']">
         <div class="topNav d-none d-sm-flex flex-column flex-lg-row justify-content-center align-items-center">
             <ul class="topMenu d-flex flex-column flex-lg-row justify-content-center align-items-center p-0 m-0 ">
                 <router-link :to="{name: 'Index'}" tag="li" class="menu__top__link">Главная</router-link>
 
-                <li v-for="category in $store.state.dropdownMenu"
+                <li v-for="category in $store.getters['products/dropdownCategory']"
                     class="menu__top__link py-2"
 
                 >
-                    <h2 class="m-0 p-0" @click="updateCatalog({category: category.id})">{{category.title}}</h2>
+                    <h2 class="m-0 p-0" @click="updateCategory({category: category.id})">{{category.title}}</h2>
 
                     <ul v-if="category.sub"
                         class="d-none submenu row d-md-flex flex-md-column py-2 px-4 mx-5"
@@ -17,7 +17,7 @@
                         <div class="dropdown-divider"></div>
                         <li v-for="sub of category.sub"
                             class="subMenuLink d-flex col-4 flex-column mx-2 px-2"
-                            @click="updateCatalog({category: category.id, subcategory: sub.id})"
+                            @click="updateCategory({category: category.id, subcategory: sub.id})"
                         >
                             -{{sub.title}}
                         </li>
@@ -31,8 +31,8 @@
                 <div class="bg-light p-4 d-flex flex-column justify-content-center">
                     <router-link :to="{name: 'Index'}"><a href="#">Home</a></router-link>
 
-                    <h4 v-for="category in $store.state.dropdownMenu"
-                        @click="updateCatalog({category: category.id})">
+                    <h4 v-for="category in $store.getters['products/dropdownCategory']"
+                        @click="updateCategory({category: category.id})">
                         {{category.title}}
                     </h4>
                     <router-link :to="{name: 'Products'}">
@@ -70,18 +70,42 @@
 </template>
 
 <script>
-    import Header from "./Header";
+
+    import {mapState} from "vuex";
 
     export default {
         name: "Navigation",
-        extends: Header,
         data() {
             return {}
         },
+        computed: {
+
+        },
         methods: {
+            updateCategory(category){
+                console.log(category)
+                this.setCategory(category)
+
+                this.$store.dispatch('products/getCatalog')
+                .then(() => {
+                    console.log(this.$route.path)
+                    if (this.$route.path !== '/products') this.$router.push({name: 'Products'})
+                })
+            },
+            setCategory(category) {
+                if (category.subcategory) {
+                    this.$store.dispatch('products/setFilter',
+                        {'category': category.category, 'subcategory': category.subcategory}
+                    )
+                } else {
+                    this.$store.dispatch('products/setFilter',
+                        {'category': category.category, 'subcategory': ''}
+                    )
+                }
+            }
         },
         mounted() {
-            this.$store.dispatch('getDropdownCategory');
+            this.$store.dispatch('products/getNavigationCategory')
         }
     }
 </script>

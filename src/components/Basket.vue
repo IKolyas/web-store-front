@@ -4,7 +4,7 @@
             <div class="basket__Product">
                 <div class="py-2">
                     <!-- BASKETITEMS -->
-                    <Item v-for="item of $store.getters.basket" type="basket" :item="item" :key="item.id"/>
+                    <Item v-for="item of this.$store.getters['basket/basket']" type="basket" :item="item" :key="item.id"/>
                 </div>
                 <div class="row mx-3 d-flex justify-content-between my-2">
                     <span>TOTAL</span>
@@ -52,14 +52,14 @@
                 return this.amount()
             },
             disabled() {
-                return !(this.$store.state.basket.basket && this.$store.state.basket.basket.length > 0)
+                return !(this.$store.getters['basket/basket'] && this.$store.getters['basket/basket'].length > 0)
             },
         },
 
         methods: {
             amount() {
                 let sum = 0
-                this.$store.state.basket.basket.forEach((item) => {
+                this.$store.getters['basket/basket'].forEach((item) => {
                     sum += +item.price * +item.quantity
                 })
                 return sum
@@ -67,7 +67,7 @@
         },
 
         mounted() {
-            this.$store.dispatch("getBasket");
+            this.$store.dispatch("basket/getBasket");
         },
     };
 </script>

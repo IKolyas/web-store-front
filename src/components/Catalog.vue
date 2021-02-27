@@ -1,12 +1,12 @@
 <template>
         <div  class="row d-flex col-12 p-0 mx-0 my-2 justify-content-around justify-content-lg-between min-vh-50"
-             v-if="$store.getters.filterCatalog"
+
         >
             <transition-group name="list"
                               class="row col-12 d-flex justify-content-center justify-content-lg-between m-0 p-0">
                 <Item
                         class="list-item"
-                        v-for="item in $store.getters.filterCatalog"
+                        v-for="item in $store.getters['products/filterProducts']"
                         type="catalog"
                         :item="item"
                         :key="item.id"
@@ -49,7 +49,7 @@ import Header from "./Header";
 
         },
         mounted() {
-            // this.$store.dispatch("getCatalog", this.filterProducts().getProductsParams(this.filters));
+            this.$store.dispatch('products/getCatalog')
         }
     }
 </script>
