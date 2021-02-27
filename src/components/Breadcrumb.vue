@@ -60,7 +60,6 @@
                 let categoryId = this.$store.getters['products/filters'].category;
                 let category = this.$store.getters['products/dropdownCategory']
                     .find(item => item.id === categoryId)
-                console.log(category)
                 return category ? {
                     'title': category.title,
                     'id': category.id

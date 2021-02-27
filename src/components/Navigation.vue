@@ -83,12 +83,10 @@
         },
         methods: {
             updateCategory(category){
-                console.log(category)
                 this.setCategory(category)
 
                 this.$store.dispatch('products/getCatalog')
                 .then(() => {
-                    console.log(this.$route.path)
                     if (this.$route.path !== '/products') this.$router.push({name: 'Products'})
                 })
             },
