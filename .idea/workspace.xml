@@ -19,20 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f90aa8a-f08a-4fc6-9aee-40be8ed37188" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/basket/Basket.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/basket/Basket.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Basket.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Basket.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Breadcrumb.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Breadcrumb.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Catalog.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Catalog.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Item.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Item.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navigation.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/modules/basket.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/modules/basket.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Products.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Products.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/ShoppingCart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/ShoppingCart.vue" afterDir="false" />
-    </list>
+    <list default="true" id="9f90aa8a-f08a-4fc6-9aee-40be8ed37188" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -92,7 +79,7 @@
       <workItem from="1613258323072" duration="2330000" />
       <workItem from="1613266668165" duration="32116000" />
       <workItem from="1613800949065" duration="18219000" />
-      <workItem from="1614103617722" duration="77129000" />
+      <workItem from="1614103617722" duration="78570000" />
     </task>
     <servers />
   </component>
