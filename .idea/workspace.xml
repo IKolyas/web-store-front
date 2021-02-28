@@ -19,7 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f90aa8a-f08a-4fc6-9aee-40be8ed37188" name="Default Changelist" comment="" />
+    <list default="true" id="9f90aa8a-f08a-4fc6-9aee-40be8ed37188" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/urls.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/urls.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navigation.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation.vue" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -79,7 +83,9 @@
       <workItem from="1613258323072" duration="2330000" />
       <workItem from="1613266668165" duration="32116000" />
       <workItem from="1613800949065" duration="18219000" />
-      <workItem from="1614103617722" duration="78570000" />
+      <workItem from="1614103617722" duration="78911000" />
+      <workItem from="1614505033122" duration="2000" />
+      <workItem from="1614527566789" duration="2155000" />
     </task>
     <servers />
   </component>
@@ -103,10 +109,10 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="479" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2048.1112@0.0.2048.1112" timestamp="1613256123460" />
-    <state x="805" y="311" key="FileChooserDialogImpl" timestamp="1614378492675">
+    <state x="805" y="311" key="FileChooserDialogImpl" timestamp="1614542001051">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="805" y="311" key="FileChooserDialogImpl/0.0.2048.1112@0.0.2048.1112" timestamp="1614378492675" />
+    <state x="805" y="311" key="FileChooserDialogImpl/0.0.2048.1112@0.0.2048.1112" timestamp="1614542001051" />
     <state width="2027" height="305" key="GridCell.Tab.0.bottom" timestamp="1606292057308">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
@@ -143,9 +149,9 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="681" y="259" key="run.anything.popup/0.0.2048.1112@0.0.2048.1112" timestamp="1613836647247" />
-    <state x="687" y="243" width="672" height="678" key="search.everywhere.popup" timestamp="1614361298324">
+    <state x="686" y="243" width="672" height="678" key="search.everywhere.popup" timestamp="1614544863792">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="687" y="243" width="672" height="678" key="search.everywhere.popup/0.0.2048.1112@0.0.2048.1112" timestamp="1614361298324" />
+    <state x="686" y="243" width="672" height="678" key="search.everywhere.popup/0.0.2048.1112@0.0.2048.1112" timestamp="1614544863792" />
   </component>
 </project>

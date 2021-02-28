@@ -23,7 +23,10 @@
                         </li>
                     </ul>
                 </li>
-                <router-link :to="{name: 'Products'}" tag="li" class="menu__top__link">Все товары</router-link>
+                <li class="menu__top__link"
+                    @click="allCategory()"
+                >Все товары
+                </li>
             </ul>
         </div>
         <div class="topNavMobile fixed-top d-block d-sm-none">
@@ -35,16 +38,9 @@
                         @click="updateCategory({category: category.id})">
                         {{category.title}}
                     </h4>
-                    <router-link :to="{name: 'Products'}">
-                        <a href="#">Accoseriese</a>
-                    </router-link>
-                    <router-link :to="{name: 'Products'}">
-                        <a href="#">Featured</a>
-                    </router-link>
-                    <router-link :to="{name: 'Products'}">
-                        <a href="#">Все товары</a>
-                    </router-link>
-
+                    <h4 @click="allCategory()">
+                        Все товары
+                    </h4>
                 </div>
             </div>
             <nav class="navbar navbar-light bg-light row mx-1">
@@ -78,17 +74,15 @@
         data() {
             return {}
         },
-        computed: {
-
-        },
+        computed: {},
         methods: {
-            updateCategory(category){
+            updateCategory(category) {
                 this.setCategory(category)
 
                 this.$store.dispatch('products/getCatalog')
-                .then(() => {
-                    if (this.$route.path !== '/products') this.$router.push({name: 'Products'})
-                })
+                    .then(() => {
+                        if (this.$route.path !== '/products') this.$router.push({name: 'Products'})
+                    })
             },
             setCategory(category) {
                 if (category.subcategory) {
@@ -100,6 +94,14 @@
                         {'category': category.category, 'subcategory': ''}
                     )
                 }
+            },
+            allCategory() {
+                this.$store.dispatch('products/setFilter', {
+                    'category': '',
+                    'subcategory': ''
+                })
+                this.$store.dispatch('products/getCatalog')
+                    .then(() => this.$router.push({name: 'Products'}))
             }
         },
         mounted() {
