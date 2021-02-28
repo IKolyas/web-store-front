@@ -102,7 +102,11 @@
                     'subcategory': ''
                 })
                 this.$store.dispatch('products/getCatalog')
-                    .then(() => this.$router.push({name: 'Products'}))
+                    .then(() => {
+                        if (this.$route.path !== '/products') {
+                            this.$router.push({name: 'Products'})
+                        }
+                    })
             }
         },
         mounted() {
