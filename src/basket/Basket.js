@@ -10,23 +10,23 @@ export default class Basket {
     }
 
     change(id, qut) {
-       let searchItem = this.basketStore.find((item) => id === item.id ) || false;
+        let searchItem = this.basketStore.find((item) => id === item.id) || false;
 
-       if (!searchItem) {
-           this._pushToBasket(id)
-           this.getBasketProducts().then()
-           return true
-       }
+        if (!searchItem) {
+            this._pushToBasket(id)
+            this.getBasketProducts().then()
+            return true
+        }
 
-       if (qut === 1) {
-           searchItem.quantity += qut;
-       } else if (qut > 1) {
-           searchItem.quantity = qut;
-       } else if (searchItem.quantity >= 2 && qut === -1) {
-           searchItem.quantity += qut;
-       } else {
-           this._removeFromBasket(searchItem)
-       }
+        if (qut === 1) {
+            searchItem.quantity += qut;
+        } else if (qut > 1) {
+            searchItem.quantity = qut;
+        } else if (searchItem.quantity >= 2 && qut === -1) {
+            searchItem.quantity += qut;
+        } else {
+            this._removeFromBasket(searchItem)
+        }
         this.getBasketProducts().then()
     }
 
@@ -53,7 +53,13 @@ export default class Basket {
         }
     }
 
-    async getBasketProducts () {
+    clearBasket() {
+        this.basketStore = []
+        this._basketSyncing()
+        this.getBasketProducts().then()
+    }
+
+    async getBasketProducts() {
         if (this.basketStore && this.basketStore.length > 0) {
             this._basketSyncing()
             let url = this._urlsIdes()
@@ -71,4 +77,6 @@ export default class Basket {
             this.basket = []
         }
     }
+
+
 }

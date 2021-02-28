@@ -5,28 +5,32 @@
             <Breadcrubm/>
 
         </div>
-        <main class="container" v-show="this.$store.state.basket.basket">
+        <main class="container" v-show="this.$store.getters['basket/basket']">
             <div class="prodHeaders row col-12 d-flex justify-content-between mt-5 mb-3 text-uppercase">
-                <div class="row col-5"><span>product detals</span></div>
+                <div class="row col-5"><span>товар</span></div>
                 <div class="row col-7">
-                    <span class="col-3 text-center d-none d-md-flex justify-content-center">unite price</span>
-                    <span class="col-3 text-center d-none d-md-flex justify-content-center">quantity</span>
-                    <span class="col-2 pl-0 text-center d-none d-md-flex justify-content-center">shipping</span>
-                    <span class="col-2 justify-content-center d-none d-md-flex">subtotal</span>
-                    <span class="col-2 justify-content-center d-none d-md-flex">action</span>
+                    <span class="col-3 text-center d-none d-md-flex justify-content-center">начальная цена</span>
+                    <span class="col-3 text-center d-none d-md-flex justify-content-center">количество</span>
+                    <span class="col-2 pl-0 text-center d-none d-md-flex justify-content-center">доставка</span>
+                    <span class="col-2 justify-content-center d-none d-md-flex">сумма</span>
+                    <span class="col-2 justify-content-center d-none d-md-flex">удалить</span>
                 </div>
             </div>
             <div class="headerLine"></div>
             <!--    ITEM        -->
-            <ItemShopCart v-for="item of this.$store.state.basket.basket" type="basket" :item="item" :key="item.id"/>
+            <ItemShopCart v-for="item of this.$store.getters['basket/basket']" type="basket" :item="item" :key="item.id"/>
 
             <div class="headerLine"></div>
             <div class="container row d-flex justify-content-center justify-content-md-between mx-0 mt-5">
                 <div class="button_next_shop">
-                    <button type="button">CLEAR SHOPPING CART</button>
+                    <button type="button"
+                            @click="clearBasket()"
+                    >Очистить корзину</button>
                 </div>
                 <div class="button_next_shop">
-                    <button type="button">CONTINUE SHOPPING</button>
+                    <button type="button"
+                    @click="$router.push({name: 'Products'})"
+                    >Продолжить покупки</button>
                 </div>
             </div>
         </main>
@@ -96,7 +100,7 @@
         computed: {
             countingGoods() {
                 let sum = 0
-                this.$store.state.basket.basket.forEach((item) => {
+                this.$store.getters['basket/basket'].forEach((item) => {
                     sum += +item.price * +item.quantity
                 })
                 return sum
@@ -104,10 +108,12 @@
         },
 
         methods: {
-
+            clearBasket() {
+                this.$store.dispatch('basket/clearBasket')
+            }
         },
         mounted() {
-            this.$store.state.basket.getBasketProducts()
+
         },
     }
 </script>

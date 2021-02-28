@@ -14,7 +14,7 @@
                                     <button class="btn btn-link btn-block text-left collapsed d-flex justify-content-between align-items-center"
                                             type="button" data-toggle="collapse"
                                             data-target="#category" aria-expanded="true" aria-controls="category">
-                                        category
+                                        Категории
                                         <svg class="bi bi-caret-down-fill" width="1em" height="1em" viewBox="0 0 16 16"
                                              fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
@@ -40,7 +40,7 @@
                                             <h4 class="subcategory__accordion pl-5"
                                                 @click="updateCategory({category: category.id, subcategory: sub.id})"
                                             >
-                                                {{sub.title}}
+                                                - {{sub.title}}
                                             </h4>
                                         </li>
                                     </ul>
@@ -53,7 +53,7 @@
                                     <button class="btn btn-link btn-block text-left collapsed d-flex justify-content-between align-items-center"
                                             type="button" data-toggle="collapse" data-target="#collapseTwo"
                                             aria-expanded="false" aria-controls="collapseTwo">
-                                        brand
+                                        Бренды
                                         <svg class="bi bi-caret-down-fill" width="1em" height="1em" viewBox="0 0 16 16"
                                              fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
@@ -65,18 +65,6 @@
                                  data-parent="#accordionExample">
                                 <div class="drBtnContProd d-flex flex-column pl-3 pt-1">
                                     <a href="#">Accessories</a>
-                                    <a href="#">Bags</a>
-                                    <a href="#">Denim</a>
-                                    <a href="#">Hoodies & Sweatshirts</a>
-                                    <a href="#">Jackets & Coats</a>
-                                    <a href="#">Pants</a>
-                                    <a href="#">Polos</a>
-                                    <a href="#">Shirts</a>
-                                    <a href="#">Shoes</a>
-                                    <a href="#">Shorts</a>
-                                    <a href="#">Sweaters & Knits</a>
-                                    <a href="#">T-Shirts</a>
-                                    <a href="#">Tanks</a>
                                 </div>
                             </div>
                         </div>
@@ -86,7 +74,7 @@
                                     <button class="btn btn-link btn-block text-left collapsed d-flex justify-content-between align-items-center"
                                             type="button" data-toggle="collapse" data-target="#collapseThree"
                                             aria-expanded="false" aria-controls="collapseThree">
-                                        designer
+                                        Размеры
                                         <svg class="bi bi-caret-down-fill" width="1em" height="1em" viewBox="0 0 16 16"
                                              fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
@@ -98,18 +86,6 @@
                                  data-parent="#accordionExample">
                                 <div class="drBtnContProd d-flex flex-column pl-3 pt-1">
                                     <a href="#">Accessories</a>
-                                    <a href="#">Bags</a>
-                                    <a href="#">Denim</a>
-                                    <a href="#">Hoodies & Sweatshirts</a>
-                                    <a href="#">Jackets & Coats</a>
-                                    <a href="#">Pants</a>
-                                    <a href="#">Polos</a>
-                                    <a href="#">Shirts</a>
-                                    <a href="#">Shoes</a>
-                                    <a href="#">Shorts</a>
-                                    <a href="#">Sweaters & Knits</a>
-                                    <a href="#">T-Shirts</a>
-                                    <a href="#">Tanks</a>
                                 </div>
                             </div>
                         </div>
@@ -119,7 +95,7 @@
                     <div class="row d-flex col-12 px-0 m-0">
                         <nav aria-label="breadcrumb"
                              class="col-12 col-lg-4 d-flex flex-column justify-content-center justify-content-lg-start px-0">
-                            <h4 class="text-center text-lg-left">Trending now</h4>
+                            <h4 class="text-center text-lg-left">Тренд</h4>
                             <div class="my-0 d-flex justify-content-center justify-content-lg-start">
                                 <ol class="breadcrumb breadCrombProd bg-transparent p-0 m-0">
                                     <li class="breadcrumb-item"><a href="#">Bohemian</a></li>
@@ -140,7 +116,7 @@
                              justify-content-lg-start align-items-center align-items-lg-start m-0 p-0"
                         >
                             <div class="m-0 p-0 col-12 d-flex justify-content-center justify-content-lg-start">
-                                <h4 class="m-0">Size</h4>
+                                <h4 class="m-0">Размеры</h4>
                             </div>
                             <div v-for="size in $store.getters.sizesCatalog"
                                  class="row d-flex flex-column m-0 p-0 col-3">
@@ -148,8 +124,6 @@
                                     <input ref="size" class="form-check-input" type="checkbox"
                                            v-bind:id="`id${size[0]}`"
                                            v-bind:value="size"
-
-
                                     >
                                     <label class="form-check-label labelSize"
                                            v-bind:for="`id${size}`">{{size[0]}}</label>
@@ -158,7 +132,7 @@
                         </div>
                         <div class="product__price col-12 col-lg-4 d-flex flex-column justify-content-center justify-content-md-start">
                             <div class="m-0 p-0 col-12 d-flex flex-column"><h4
-                                    class="d-flex justify-content-center justify-content-lg-start">Price</h4>
+                                    class="d-flex justify-content-center justify-content-lg-start">Цена</h4>
                                 <div class="range_slider my-2">
                                     <input
                                             type="range"
@@ -167,7 +141,6 @@
                                             step="10"
                                             v-model.number="$store.getters['products/filters'].price_min"
                                             @change="updateCatalog()"
-
                                     />
                                     <input
                                             type="range"

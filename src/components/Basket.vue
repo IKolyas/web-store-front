@@ -1,13 +1,12 @@
 <template>
-    <transition name="basket">
-        <div>
-            <div class="basket__Product">
+    <transition name="basket" >
+            <div class="basket__Product basket__click" id="basket__click">
                 <div class="py-2">
                     <!-- BASKETITEMS -->
                     <Item v-for="item of this.$store.getters['basket/basket']" type="basket" :item="item" :key="item.id"/>
                 </div>
-                <div class="row mx-3 d-flex justify-content-between my-2">
-                    <span>TOTAL</span>
+                <div class="row mx-3 d-flex justify-content-between my-2 ">
+                    <span>Итого: </span>
                     <span class="text-muted">${{countingGoods}}</span>
                     <router-link :to="{name: 'CheckOut'}">
                         <button
@@ -15,7 +14,7 @@
                                 role="button"
                                 aria-pressed="true"
                                 :disabled="disabled"
-                        >Checkout</button>
+                        >Оформить заказ</button>
                     </router-link>
                     <router-link :to="{name: 'ShoppingCart'}">
                         <button
@@ -23,11 +22,10 @@
                                 role="button"
                                 aria-pressed="true"
                                 :disabled="disabled"
-                        >Go to cart</button>
+                        >К корзине</button>
                     </router-link>
                 </div>
             </div>
-        </div>
     </transition>
 </template>
 

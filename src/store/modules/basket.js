@@ -18,6 +18,9 @@ const actions = {
     },
     changeBasketProduct ({commit}, item) {
         commit('changeBasket', item)
+    },
+    clearBasket({commit}){
+        commit('clearBasket')
     }
 }
 
@@ -27,6 +30,9 @@ const mutations = {
     },
     getBasketProducts({state}) {
         state.basket.getBasketProducts().then()
+    },
+    clearBasket({state}) {
+        state.basket.clearBasket()
     }
 }
 

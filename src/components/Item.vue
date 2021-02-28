@@ -34,7 +34,7 @@
         </template>
 
         <template v-if="type === 'basket'">
-            <div v-show="item">
+            <div>
                 <div class="d-flex px-3 justify-content-between align-items-center py-1">
                     <img :src="item.img[0]['image_path'] + item.img[0]['image_name']" :alt="item.title"
                          @click="getOneProduct(item.id)"

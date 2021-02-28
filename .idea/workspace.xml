@@ -19,7 +19,20 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f90aa8a-f08a-4fc6-9aee-40be8ed37188" name="Default Changelist" comment="" />
+    <list default="true" id="9f90aa8a-f08a-4fc6-9aee-40be8ed37188" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/basket/Basket.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/basket/Basket.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Basket.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Basket.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Breadcrumb.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Breadcrumb.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Catalog.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Catalog.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Item.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Item.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navigation.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navigation.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/modules/basket.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/modules/basket.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Products.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Products.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/ShoppingCart.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/ShoppingCart.vue" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -79,7 +92,7 @@
       <workItem from="1613258323072" duration="2330000" />
       <workItem from="1613266668165" duration="32116000" />
       <workItem from="1613800949065" duration="18219000" />
-      <workItem from="1614103617722" duration="67942000" />
+      <workItem from="1614103617722" duration="77129000" />
     </task>
     <servers />
   </component>
@@ -131,10 +144,10 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state width="254" height="198" key="ShowFilterAction_Filter_Popup/0.0.2048.1112@0.0.2048.1112" timestamp="1612892123362" />
-    <state x="848" y="116" width="579" height="795" key="find.popup" timestamp="1614442850178">
+    <state x="848" y="116" width="579" height="795" key="find.popup" timestamp="1614448155884">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="848" y="116" width="579" height="795" key="find.popup/0.0.2048.1112@0.0.2048.1112" timestamp="1614442850178" />
+    <state x="848" y="116" width="579" height="795" key="find.popup/0.0.2048.1112@0.0.2048.1112" timestamp="1614448155884" />
     <state x="867" y="329" key="refactoring.ChangeSignatureDialog" timestamp="1614183334729">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>

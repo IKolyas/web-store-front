@@ -29,7 +29,7 @@
         <div class="topNavMobile fixed-top d-block d-sm-none">
             <div class="collapse" id="navbarToggleExternalContent">
                 <div class="bg-light p-4 d-flex flex-column justify-content-center">
-                    <router-link :to="{name: 'Index'}"><a href="#">Home</a></router-link>
+                    <router-link :to="{name: 'Index'}"><a href="#">Главная</a></router-link>
 
                     <h4 v-for="category in $store.getters['products/dropdownCategory']"
                         @click="updateCategory({category: category.id})">
@@ -42,7 +42,7 @@
                         <a href="#">Featured</a>
                     </router-link>
                     <router-link :to="{name: 'Products'}">
-                        <a href="#">Hot Deals</a>
+                        <a href="#">Все товары</a>
                     </router-link>
 
                 </div>

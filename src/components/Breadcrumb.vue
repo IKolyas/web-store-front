@@ -7,7 +7,7 @@
             <ol class="newsNav d-flex">
                 <template v-if="type === 'single'">
                     <li class="breadcrumb-item" @click="$router.push({name: 'Index'})">
-                        Home
+                        Главная
                     </li>
                     <li class="breadcrumb-item d-flex justify-content-center align-items-center"
                         @click="$router.go(-1)">
@@ -16,7 +16,7 @@
                 </template>
                 <template v-else>
                     <li class="breadcrumb-item" @click="$router.push({name: 'Index'})">
-                        Home
+                        Главная
                     </li>
                     <li v-if="category.title" class="breadcrumb-item"
                         aria-current="page"

@@ -45,7 +45,11 @@
             </div>
             <div class="rTop d-none d-sm-flex col-lg-3 ml-lg-auto justify-content-center justify-content-lg-end p-0 align-items-center">
                 <div class="basket__block" id="basket">
-                    <i class="fa fa-shopping-cart my__cart" aria-hidden="true" @click="showBasket = !showBasket"></i>
+                    <i class="fa fa-shopping-cart my__cart"
+                       id="basketButton"
+                       aria-hidden="true"
+                       @click="showBasket = !showBasket"
+                    ></i>
 
                     <!-- BASKET -->
                     <transition name="basket-show">
@@ -55,7 +59,7 @@
                 </div>
                 <div class="btn-group ml-4">
                     <router-link :to="{name: 'CheckOut'}" tag="button" type="button" class="btn btn-danger">
-                        My Account
+                        мой аккаунт
                     </router-link>
                     <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -136,6 +140,15 @@
         },
         mounted() {
 
+        },
+        created() {
+            document.addEventListener('click', (e) => {
+                console.log(e.target)
+                console.log(e.target.classList.contains("basket__Product"))
+                if (e.target.id !== ('basketButton') && e.target.id !== 'basket__click') {
+                    this.showBasket = false
+                }
+                })
         }
     }
 </script>

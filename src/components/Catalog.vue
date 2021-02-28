@@ -1,5 +1,5 @@
 <template>
-        <div  class="products__catalog row d-flex col-12 p-0 mx-0 my-2 justify-content-around justify-content-lg-between"
+        <div  class="products__catalog row d-flex col-12 p-0 mx-0 my-2 justify-content-around justify-content-lg-between min-vh-100"
 
         >
             <transition-group name="list"
@@ -55,7 +55,5 @@ import Header from "./Header";
 </script>
 
 <style scoped>
-.products__catalog {
-    min-height: 100%;
-}
+
 </style>
