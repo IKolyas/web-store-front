@@ -95,6 +95,7 @@
                     )
                 }
             },
+            //ссылка на все категории товаров
             allCategory() {
                 this.$store.dispatch('products/setFilter', {
                     'category': '',
