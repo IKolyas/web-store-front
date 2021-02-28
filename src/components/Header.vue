@@ -142,13 +142,7 @@
 
         },
         created() {
-            document.addEventListener('click', (e) => {
-                console.log(e.target)
-                console.log(e.target.classList.contains("basket__Product"))
-                if (e.target.id !== ('basketButton') && e.target.id !== 'basket__click') {
-                    this.showBasket = false
-                }
-                })
+
         }
     }
 </script>
