@@ -5,9 +5,9 @@ import router from "@/router";
 const state = () => ({
     state: {
         userId: localStorage.getItem('user_id') || '',
-        user: undefined,
-        profile: null,
-        status: null,
+        user: '',
+        profile: '',
+        status: '',
         token: localStorage.getItem('token') || '',
     }
 })
