@@ -70,6 +70,9 @@ const actions = {
             .then(products => commit('setProducts', products))
             .then(() => commit('setSizes'));
     },
+    clearCatalog({commit}) {
+        commit('clearCatalog');
+    },
     // получить продукт
     async getProductSingle({commit}, id) {
         let productUrl = `${urls.article}${id}`
@@ -122,12 +125,15 @@ const mutations = {
             .filter((elem, index, array) => array.indexOf(elem) === 'size')
     },
     linkPagination({state}, page) {
-        state.filters.offset = page || '';
+        state.filters.offset = page ? page : '';
     },
     updateFilter({state}, params) {
         Object.keys(params).forEach((key) => {
             state.filters[key] = params[key]
         })
+    },
+    clearCatalog({state}) {
+        state.productsCatalog = [];
     }
 
 }
