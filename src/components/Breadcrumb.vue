@@ -64,14 +64,6 @@
                     'title': category.title,
                     'id': category.id
                 } : '';
-                // let categoryID = this.$route.params.category || ''
-                // this.categoryObj = this.$store.getters['products/dropdownCategory'].find(category => category.id === categoryID)
-                // if (this.categoryObj) {
-                //     this.sub = false;
-                //     return this.categoryObj;
-                // } else {
-                //     return '';
-                // }
             },
             subcategory() {
                 let subcategoryId = this.$store.getters['products/filters'].subcategory;

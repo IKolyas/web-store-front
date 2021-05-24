@@ -1,7 +1,7 @@
 
-import {FilterSerializer} from "../../utils/FilterSerializer";
-import {urls} from "../../api/urls";
-import {fetchMethods} from "../../api/serverApi";
+import {FilterSerializer} from "@/utils/FilterSerializer";
+import {urls} from "@/api/urls";
+import {fetchMethods} from "@/api/serverApi";
 
 const state = () => ({
     state: {
@@ -35,7 +35,7 @@ const getters = {
     },
     sizesCatalog({state}) {
         return state.sizesCategory.results ?
-            Object.values(state.sizesCategory.results).map(size => Object.values(size)) : []
+            Object.values(state.sizesCategory.results).map((size) => Object.values(size)) : []
     },
 
     singleProduct({state}) {
@@ -105,20 +105,6 @@ const actions = {
         commit('linkPagination');
         commit('updateFilter', {'limit': ''})
     },
-    // getSizes({state}, params = '') {
-    //     let url = `${urls.categorySizes}${params}`
-    //
-    //     fetchMethods.get(url)
-    //         .then(category => {
-    //             state.sizesCategory = category
-    //         })
-    // },
-    // getPagination({state}, url = '') {
-    //     fetchMethods.get(url)
-    //         .then(items => {
-    //             state.productsCatalog = items;
-    //         })
-    // },
 }
 
 const mutations = {

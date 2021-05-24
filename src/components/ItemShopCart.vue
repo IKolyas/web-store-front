@@ -2,13 +2,18 @@
    <div class="prodHeaders row col-12 d-flex justify-content-between mt-4 mb-3 text-uppercase">
         <div class="row col-5 img-responsive">
             <div class="productDet d-flex">
-                <router-link :to="{name: 'SinglePage', params: item}">
-                    <img v-if="item.img" :src="item.img[0]['image_path'] + item.img[0]['image_name']" :alt="item.title">
-                </router-link>
+                <img
+                    v-if="item.img"
+                    :src="item.img[0]['image_path'] + item.img[0]['image_name']"
+                    :alt="item.title"
+                    @click="getOneProduct(item.id)"
+                >
                 <div class="ProdDetText d-flex flex-column ml-3 text-capitalize">
-                    <router-link class="item__name" :to="{name: 'SinglePage', params: item}">
-                        <h3 class="my-2">{{item.title}}</h3>
-                    </router-link>
+                        <h3 class="item__name my-2 "
+                            @click="getOneProduct(item.id)"
+                        >
+                            {{item.title}}
+                        </h3>
                     <span>Color:
                         <mark>{{item.color}}</mark>
                     </span>
@@ -41,12 +46,10 @@
 </template>
 
 <script>
-    const Item = () => import('./Item.vue');
 
     export default {
         name: "ItemShopCart",
         components: {
-            Item
         },
         data() {
             return {
@@ -65,6 +68,11 @@
 
             changeBasketProduct(id, qut = 1) {
                 this.$store.dispatch('basket/changeBasketProduct', {'id': id, 'qut': qut})
+            },
+            getOneProduct(id) {
+                this.$store.dispatch('products/getProductSingle', id).then(() =>
+                    this.$router.push({path: `/single-page/${id}`})
+                )
             },
 
         },

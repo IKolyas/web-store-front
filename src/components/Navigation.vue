@@ -55,7 +55,7 @@
                         <a href="#" class="fa fa-shopping-cart my__cart px-2" aria-hidden="true"></a>
                     </router-link>
                     <div class="btn-group">
-                        <router-link tag="button" class="btn btn-danger p-1" :to="{name: 'CheckOut'}">
+                        <router-link tag="button" class="btn btn-danger p-1" :to="{name: 'CheckOutOrder'}">
                             My Account
                         </router-link>
                     </div>

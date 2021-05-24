@@ -1,7 +1,7 @@
 <template>
     <div v-show="item">
         <div class="newsProd">
-            <Breadcrubm type="single" :item="item"/>
+            <Breadcrubm/>
         </div>
         <div class="col-12 corusBlock">
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -33,6 +33,7 @@
                     <div class="plrow"></div>
                 </div>
                 <h2 class="col-12 text-center">{{item.title}}</h2>
+                <b-form-rating  v-model="item.rating" variant="warning" class="mb-2" readonly></b-form-rating>
                 <p class="col-12 d-flex align-items-center justify-content-center">
                     {{item.description}}
                 </p>
@@ -119,7 +120,7 @@
             },
         },
         mounted() {
-
+            this.$store.dispatch('products/getProductSingle', this.$route.params.id)
         },
         created() {
 

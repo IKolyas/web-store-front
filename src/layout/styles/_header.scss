@@ -31,6 +31,7 @@
       box-shadow: none !important;
     }
   }
+
   i {
     color: $mainTextColorP;
   }
@@ -73,17 +74,21 @@
     transform: scale(1.2, 1.2);
     cursor: pointer;
   }
+
   &:focus {
     outline: none;
   }
 
 }
+
 .qut__del:hover {
   color: red !important;
 }
+
 .qut__add:hover {
   color: green !important;
 }
+
 .qut__remove:hover {
   color: blueviolet !important;
 }
@@ -122,13 +127,15 @@
         text-decoration: none;
         color: $mainThemeColor;
         transform: scale(1.2, 1.2);
+        cursor: pointer;
       }
     }
 
-    .basket__Product {
+    .basket__product {
       a {
         text-decoration: none;
       }
+
       position: absolute;
       width: 262px !important;
       background-color: #FFFFFF;
@@ -164,12 +171,22 @@
       }
     }
 
-    img {
-      width: 72px;
-      height: 85px;
-      object-position: center center;
-      object-fit: cover;
+    .item_basket {
+      img {
+        width: 72px;
+        height: 85px;
+        object-position: center center;
+        object-fit: cover;
+        transition: 1s;
+
+        &:hover {
+          transform: scale(1.2);
+          cursor: pointer;
+        }
+      }
+
     }
+
 
     .product__text {
 
@@ -241,10 +258,12 @@
     text-transform: uppercase;
     padding: 0 1.5rem;
     border-bottom: 4px solid #ffffff;
+
     h2 {
       font-size: 14px;
       font-weight: 700;
     }
+
     &:hover {
       text-shadow: 2px 4px 6px rgba(150, 150, 150, 1);
       text-decoration: none;
@@ -253,10 +272,11 @@
       cursor: pointer;
     }
 
-    .submenu__img{
+    .submenu__img {
       object-position: center center;
       object-fit: cover;
     }
+
     .submenu {
       text-shadow: none;
       background-color: #ffffff;
@@ -270,6 +290,7 @@
       transform: perspective(600px) rotateX(-90deg);
       transform-origin: 0 0;
       transition: .2s ease-in-out;
+
       h3 {
         font-size: 1rem;
         text-align: center;
@@ -287,6 +308,7 @@
         color: #646464;
         transition: .2s ease-in-out;
       }
+
       & li:hover {
         text-shadow: 2px 4px 6px rgba(150, 150, 150, 1);
         color: $mainTextColor;

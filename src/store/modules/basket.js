@@ -1,5 +1,3 @@
-import {urls} from "../../api/urls";
-import {fetchMethods} from "../../api/serverApi";
 import Basket from "../../basket/Basket";
 const state = () => ({
     state: {
