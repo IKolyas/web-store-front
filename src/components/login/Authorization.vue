@@ -59,9 +59,9 @@ export default {
         }
     },
     methods: {
-        makeToastLoginMessage(append = false, variant = 'default', name) {
-            this.$bvToast.toast(`"${name}", Вы успешно вошли в личный кабинет!`, {
-                title: 'Вход в личный кабинет!',
+        makeToastLoginMessage(append = false, variant = 'default', text = '') {
+            this.$bvToast.toast(text, {
+                title: 'Авторизация',
                 variant: variant,
                 autoHideDelay: 4000,
                 appendToast: append
@@ -73,10 +73,15 @@ export default {
             this.$store.dispatch('user/loginUser', this.form)
                 .then(() => this.$store.dispatch('user/getUser', this.$store.getters['user/user_id']))
                 .then(() => {
-                    this.$store.commit('changeLoadItem', 'itemLogin');
-                    this.makeToastLoginMessage(true, 'primary', this.$store.getters['user/user'].username);
-                    if (this.$route.path !== '/account' && this.$store.getters['user/isAuth']) this.$router.push({name: 'Account'})
+                    this.makeToastLoginMessage(true, 'primary', `${this.$store.getters['user/user'].username}, Вы успешно вошли в личный кабинет!`);
+                    if (this.$route.path !== '/account' && this.$store.getters['user/isAuth']) {
+                        this.$router.push({name: 'Account'})
+                    }
                 })
+                .catch(() => {
+                    this.makeToastLoginMessage(true, 'danger', `Ошибка комбинации логин/пароль`);
+                })
+                .finally(() => this.$store.commit('changeLoadItem', 'itemLogin'))
 
         },
         onReset(event) {
